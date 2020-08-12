@@ -42,7 +42,7 @@ public class UmbrellaConnector {
 		String configFile = Configuration.dir("UmbrellaConnector")+File.separator+"test.config";
 		Configuration config = new Configuration(configFile);
 		UmbrellaConnector umbrella = new UmbrellaConnector(config);
-		URL url = new URL("https://umbrella.srsoftware.de/task/1/view");
+		URL url = new URL("https://umbrella.srsoftware.de/mindmap/umbrella?id=5");
 		String response = umbrella.request(url);
 		Log.info("Response: {}",response);
 	}
@@ -69,7 +69,7 @@ public class UmbrellaConnector {
 		return null;
 	}
 
-	private String request(URL url) throws IOException, RedirectException {
+	public String request(URL url) throws IOException, RedirectException {
 		Log.debug("requesting {}",url);
 		int count = 0;
 		HttpURLConnection connection = (HttpURLConnection)url.openConnection();
@@ -77,14 +77,14 @@ public class UmbrellaConnector {
 		String redirect = connection.getHeaderField("Location");
 		while (redirect != null) {
 			count++;
-			if (count>20) throw new RedirectException(redirect);
+			if (count>7) throw new RedirectException(redirect);
 			URL newUrl = new URL(redirect);
 			if (redirect.contains("/login?")) { // if we are redirected to the login page: alter redirect to point to local servlet
 				String loginPage = redirect.split("\\?")[0];
 				Tools.openWebpage(loginPage+"?returnTo=http://localhost:8765/intelliMind");
 				String token = token(newUrl); // spawn servlet, receive token
 				Log.debug("Token: {}",token);
-				newUrl = new URL(url+"?token="+token); // update original redirect with token
+				newUrl = new URL(url+(url.toString().contains("?")?"&":"?")+"token="+token); // update original redirect with token
 			} 
 			Log.debug("requesting {}",newUrl);
 			connection = (HttpURLConnection)newUrl.openConnection();
