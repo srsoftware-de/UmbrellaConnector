@@ -4,10 +4,51 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.srsoftware</groupId>
 	<artifactId>umbrella-connect</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>Umbrella-Connector</name>
 	<description>Library that allows to use Umbrella services from SRSoftware.</description>
+	<url>https://github.com/srsoftware-de/UmbrellaConnector</url>
+	
+	<organization>
+		<name>SRSoftware</name>
+		<url>https://srsoftware.de</url>
+	</organization>
+	
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
 
+	<developers>
+		<developer>
+			<name>Stephan Richter</name>
+			<email>s.richter@srsoftware.de</email>
+			<organization>SRSoftware</organization>
+			<organizationUrl>http://www.srsoftware.de</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git://github.com/srsoftware-de/UmbrellaConnector.gi</connection>
+		<developerConnection>scm:git@github.com:srsoftware-de/UmbrellaConnector.git</developerConnection>
+		<url>https://github.com/srsoftware-de/UmbrellaConnector</url>
+		<tag>HEAD</tag>
+	</scm>
+	
+	<distributionManagement>
+		<!-- for deployment to MAVEN CENTRAL -->
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+		
 	<dependencies>
 		<dependency>
 			<groupId>de.srsoftware</groupId>

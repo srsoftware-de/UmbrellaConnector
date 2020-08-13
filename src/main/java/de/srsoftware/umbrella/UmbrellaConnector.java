@@ -171,6 +171,7 @@ public class UmbrellaConnector {
 				String token = getToken(newUrl); // spawn servlet, receive token
 				Log.debug("Token: {}",token);
 				newUrl = url;
+				if (data == null) data = new HashMap<String, String>();
 				data.put("token", token);
 			} 
 			Log.debug("requesting {}",newUrl);
