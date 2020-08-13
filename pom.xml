@@ -4,16 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.srsoftware</groupId>
 	<artifactId>umbrella-connect</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Umbrella-Connector</name>
 	<description>Library that allows to use Umbrella services from SRSoftware.</description>
 
 	<dependencies>
-		<dependency>
-			<groupId>de.srsoftware</groupId>
-			<artifactId>local-config</artifactId>
-			<version>0.0.7</version>
-		</dependency>
 		<dependency>
 			<groupId>de.srsoftware</groupId>
 			<artifactId>tools</artifactId>
